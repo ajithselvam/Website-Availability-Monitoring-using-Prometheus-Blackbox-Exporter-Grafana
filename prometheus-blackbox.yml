@@ -4,7 +4,7 @@ global:
 scrape_configs:
   - job_name: "prometheus"
     static_configs:
-      - targets: ["localhost:9090"]
+      - targets: ["prometheus:9090"]
 
   - job_name: "blackbox"
     metrics_path: /probe
@@ -21,4 +21,4 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: host.docker.internal:9115  # Blackbox exporter endpoint
+        replacement: bbe:9115  # Blackbox exporter endpoint  # name of blackbox--eporter container
